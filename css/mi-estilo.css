@@ -1,0 +1,36 @@
+.social-widget {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+.slider {
+  position: relative;
+  width: 60px;
+  height: 150px;
+}
+
+.slider-tab {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.slider-tab:hover {
+  background-color: #0062cc;
+}
+
+.slider-content {
+  position: absolute;
+  top: 50%;
+  left
