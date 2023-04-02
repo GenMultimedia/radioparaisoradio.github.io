@@ -68,19 +68,25 @@
 	</style>
 	<script>
 		function share() {
-			navigator.share({
-				title: 'Título de la página',
-				url: 'https://www.ejemplo.com'
-			})
-			.then(() => console.log('Compartido'))
-			.catch(error => console.log('Error al compartir', error));
+			if (navigator.share) {
+				// Si el navegador soporta la API de compartir
+				navigator.share({
+					title: 'Título de la página',
+					url: 'https://www.ejemplo.com'
+				})
+				.then(() => console.log('Compartido'))
+				.catch(error => console.log('Error al compartir', error));
+			} else {
+				// Si el navegador no soporta la API de compartir, mostrar un mensaje de error
+				alert('Lo siento, tu dispositivo no soporta compartir en línea.');
+			}
 		}
 	</script>
 </head>
 <body>
 	<div class="floating-buttons">
-		<a href="https://es-la.facebook.com/" class="facebook" target="none"></a>
-		<a href="https://www.whatsapp.com/?lang=es" class="whatsapp" target="none"></a>
+		<a href="fb://page/1234567890" class="facebook" target="_blank"></a>
+		<a href="https://api.whatsapp.com/send?phone=5491169080304" class="whatsapp" target="_blank"></a>
 		<a href="#" class="compartir" onclick="share()"></a>
 	</div>
 </body>
