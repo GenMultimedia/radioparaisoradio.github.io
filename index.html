@@ -35,9 +35,12 @@
 			font-size: 20px;
 			color: #fff;
 			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-			
+			transition: all 0.1s ease-in-out;
 		}
 		
+		.floating-buttons a:hover {
+			transform: scale(1.2);
+		}
 
 		.facebook {
 			background-color: #3B5998;
@@ -63,12 +66,22 @@
 			background-repeat: no-repeat;
 		}
 	</style>
+	<script>
+		function share() {
+			navigator.share({
+				title: 'Título de la página',
+				url: 'https://www.ejemplo.com'
+			})
+			.then(() => console.log('Compartido'))
+			.catch(error => console.log('Error al compartir', error));
+		}
+	</script>
 </head>
 <body>
 	<div class="floating-buttons">
-		<a href="#" class="facebook"></a>
-		<a href="#" class="whatsapp"></a>
-		<a href="#" class="compartir"></a>
+		<a href="https://es-la.facebook.com/" class="facebook" target="none"></a>
+		<a href="https://www.whatsapp.com/?lang=es" class="whatsapp" target="none"></a>
+		<a href="https://play.google.com/store/apps/details?id=app.lanave.user&hl=es_AR&gl=US" class="compartir" onclick="share()"></a>
 	</div>
 </body>
 
